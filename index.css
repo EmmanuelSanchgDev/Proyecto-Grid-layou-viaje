@@ -16,17 +16,20 @@ body {
 }
 img {
     border-radius: 1rem;
-
+    
 }
 .header {
     display: grid;
-    grid-template-columns: minmax(25rem, 50rem);
+    grid-template-columns: repeat(auto-fit, 1fr);
     grid-auto-rows: 30rem;
     place-content: center;
     padding: 2rem;
     padding-bottom: 0;
     margin-top: 2rem;
-
+}
+.header__container-image {
+    display: none;
+    
 }
 .header .space {
     margin-bottom: 2rem;
@@ -34,9 +37,13 @@ img {
 .header__container-tex {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+}
+.header__title {
+    font: 4rem;
 }
 .header__text {
-    font-size: var(--principal);
+    font-size: 2rem;
 }
 .header__button {
     border: 0.1rem black solid;
@@ -48,120 +55,56 @@ img {
     cursor: pointer;
     align-self: center;
 }
-.header__container-image {
-    display: none;
-}
 .main, .footer {
     display: flex;
     flex-direction: column;
     align-items: center;
+    
 }
-.main__title {
+.main__title, .footer__title {
     text-align: center;
     font-weight: bold;
-    font-size: 3rem;
+    font-size: 4rem;
     margin-bottom: 2rem;
+    padding: 3rem;
 }
-.main__content {
+.main__content, .footer__content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(14rem, 20rem));
-    grid-auto-rows: minmax(13rem, 20rem);
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
     place-content: center;
     gap: 1rem;
     width: 95%;
 }
-.main__content img {
+.main__content img, .footer__content img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-.main__content img:first-child {
-    grid-area: 1/1/3/3;
-}
-.main__content img:last-child {
-    grid-area: 5/1/7/3;
-}
 .footer {
     margin-bottom: 2rem;
 }
-.footer__title {
-    text-align: center;
-    color: white;
-    font-weight: bold;
-    font-size: 3rem;
-    padding: 3rem;
-}
-.footer__content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(10rem, 16rem));
-    grid-auto-rows: minmax(10rem, 16rem);
-    place-content: center;
-    gap: 1rem;
-    width: 95%;
 
-}
-.footer__content img {
-    width: 100%;
-    object-fit: scale-down;
-}
-.footer img:last-child {
-    grid-area: 3/1/5/3;
-}
-@media (min-width: 768px) {
+@media (min-width: 622px) {
+    .header {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .header__container-tex {
+        width: 30rem;
+        place-self: center;
+    }
     .header__container-image {
         display: block;
-    }
-    .header {
-        grid-template-columns: repeat(2, 35rem);
-        grid-auto-rows: 35rem;
-    }
-    .header__container-tex {
+        display: flex;
         justify-content: center;
     }
-    .header__image {
-        width: 100%;
+    .header__container-image img {
         height: 100%;
-        object-fit: cover;
-        border-radius: 3rem;
+        border-radius: 1rem;
     }
-    .main__content img:last-child {
-        grid-area: 3/1/5/5;
+    .main__content img:nth-last-child(2), .footer__content img:nth-last-child(2) {
+        grid-area: 2/1/4/3;
     }
-    .footer img:last-child {
-        display: none;
-    }
-}
-@media (min-width: 1024px) {
-    .header {
-        grid-template-columns: repeat(auto-fit, minmax(26rem, 45rem));
-        grid-auto-rows: minmax(26rem, 45rem);
-    }
-    .header__container-tex {
-        text-align: center;
-    }
-    .header__title {
-        font-size: 5rem;
-    }
-    .header__text {
-        padding: 5rem;
-        font-size: 2rem;
-        text-align: start;
-    }
-    .main__content img:first-child {
-        grid-area: initial;
-    }
-    .main__content img:last-child {
-        grid-area: initial;
-    }
-    .main__content {
-        grid-template-columns: repeat(auto-fit, minmax(13rem, 20rem));
-        grid-auto-rows: minmax(13rem, 20rem);
-    }
-    .footer__content {
-        grid-template-columns: repeat(auto-fit, minmax(10rem, 20rem));
-        grid-auto-rows: minmax(10rem, 20rem);
-    }
-    .footer {
-        margin-bottom: 5rem;
+    .main__content img:nth-last-child(1), .footer__content img:nth-last-child(1) {
+        grid-area: 2/3/4/5;
     }
 }
