@@ -51,6 +51,11 @@ img {
 .header__container-image {
     display: none;
 }
+.main, .footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .main__title {
     text-align: center;
     font-weight: bold;
@@ -59,10 +64,11 @@ img {
 }
 .main__content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(13rem, 16rem));
-    grid-auto-rows: minmax(13rem, 16rem);
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 20rem));
+    grid-auto-rows: minmax(13rem, 20rem);
     place-content: center;
     gap: 1rem;
+    width: 95%;
 }
 .main__content img {
     width: 100%;
@@ -91,6 +97,8 @@ img {
     grid-auto-rows: minmax(10rem, 16rem);
     place-content: center;
     gap: 1rem;
+    width: 95%;
+
 }
 .footer__content img {
     width: 100%;
